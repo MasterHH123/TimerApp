@@ -1,1 +1,36 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Timer</title>
+</head>
+<body>
+    <h1>
+        Timer
+    </h1>
+    <div class='time-picker'>
+        <label for='hour-select'>Hour(s)</label>
+        <select id='hours'>
+            {% for hour in hours %}
+            <option value="{{ hour }}">{{ hour }}</option>
+            {% endfor %}
+        </select>
+        <label for='minute-select'>Minute(s)</label>
+        <select id='minutes'>
+            {% for minute in minutes %}
+            <option value="{{ minute }}">{{ minute }}</option>
+            {% endfor %}
+        </select>
+        <label for='second-select'>Second(s)</label>
+        <select id='seconds'>
+            {% for second in seconds %}
+                <option value="{{ second }}">{{ second }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <br>
+    <button id='startTimer'>Start Timer</button> 
+    <button id='endTimer'>End Timer</button> 
+</body>
+</html>

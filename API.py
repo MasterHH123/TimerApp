@@ -4,7 +4,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html'), HTTP_OK
+    hours = list(range(23))
+    minutes = list(range(59))
+    seconds = list(range(59))
+    return render_template('index.html', hours = hours, minutes = minutes, seconds = seconds), HTTP_OK
 
 if __name__ == '__main__':
     app.run(port=7070)

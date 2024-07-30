@@ -1,4 +1,3 @@
-import os
 import time
 
 def getTime():
@@ -22,3 +21,12 @@ def parseTime(date):
 
 print(f"Current time is: ", getTime())
 print(f"Parsed time is: ", parseTime(getTime()))
+
+def userInput(time):
+    print(time)
+    parsedTime = {
+        "hour": time.split(':')[0],
+        "minute": time.split(':')[1],
+        "second": time.split(':')[2]
+        }
+
