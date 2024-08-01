@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Set Timer</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='countdown.js')}}"></script>
 </head>
 <body>
     <h1>
-        Timer
+        Set Timer
     </h1>
     <div class='time-picker'>
         <label for='hour-select'>Hour(s)</label>
@@ -29,6 +31,8 @@
             {% endfor %}
         </select>
     </div>
+    <br>
+    <div id="timer"></div>
     <br>
     <button id='startTimer'>Start Timer</button> 
     <button id='endTimer'>End Timer</button> 
