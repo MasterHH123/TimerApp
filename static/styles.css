@@ -1,0 +1,54 @@
+body {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+.time-picker {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.form-control.custom-select {
+    width: 80px;
+    height: 50px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    padding: 5px 0;
+    background: #333;
+    color: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.form-control.custom-select:hover {
+    border-color: #ff6600;
+}
+.form-control.custom-select option {
+    text-align: center;
+    background: #333;
+    color: #fff;
+}
+#timer {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.btn {
+    width: 150px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.2);   
+    border: 1px solid rgba(255, 255, 255, 0.3);   
+    color: #fff;
+}
+.btn:hover {
+    background-color: #ff6600;
+    border-color: #ff6600;
+}
+

@@ -4,37 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Set Timer</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{{ url_for('static', filename='countdown.js')}}"></script>
 </head>
 <body>
-    <h1>
-        Set Timer
-    </h1>
-    <div class='time-picker'>
-        <label for='hour-select'>Hour(s)</label>
-        <select id='hours'>
-            {% for hour in hours %}
-            <option value="{{ hour }}">{{ hour }}</option>
-            {% endfor %}
-        </select>
-        <label for='minute-select'>Minute(s)</label>
-        <select id='minutes'>
-            {% for minute in minutes %}
-            <option value="{{ minute }}">{{ minute }}</option>
-            {% endfor %}
-        </select>
-        <label for='second-select'>Second(s)</label>
-        <select id='seconds'>
-            {% for second in seconds %}
-                <option value="{{ second }}">{{ second }}</option>
-            {% endfor %}
-        </select>
+    <div class="container text-center">
+        <h1 class="my-4">Timer</h1>
+        <div class="time-picker mb-4 justify-content-center">
+            <div>
+                <label for="hours">Hour(s)</label>
+                <select id="hours" class="form-control custom-select">
+                    {% for hour in hours %}
+                    <option value="{{ hour }}">{{ hour }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="minutes">Minute(s)</label>
+                <select id="minutes" class="form-control custom-select">
+                    {% for minute in minutes %}
+                    <option value="{{ minute }}">{{ minute }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="seconds">Second(s)</label>
+                <select id="seconds" class="form-control custom-select">
+                    {% for second in seconds %}
+                    <option value="{{ second }}">{{ second }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div id="timer" class="display-4">00:00:00</div>
+        <div class="mt-4">
+            <button id="startTimer" class="btn">Start Timer</button>
+            <button id="endTimer" class="btn">End Timer</button>
+        </div>
     </div>
-    <br>
-    <div id="timer"></div>
-    <br>
-    <button id='startTimer'>Start Timer</button> 
-    <button id='endTimer'>End Timer</button> 
 </body>
 </html>
