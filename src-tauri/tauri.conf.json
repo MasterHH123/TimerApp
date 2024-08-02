@@ -55,10 +55,10 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 600,
+        "height": 400,
         "resizable": true,
-        "title": "Edit",
-        "width": 800
+        "title": "Aion",
+        "width": 600
       }
     ]
   }
