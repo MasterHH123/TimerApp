@@ -8,6 +8,10 @@ body {
     height: 100vh;
     margin: 0;
 }
+
+.time-header {
+    font-weight: bolder;
+}
 .time-picker {
     display: flex;
     gap: 10px;

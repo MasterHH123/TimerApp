@@ -9,11 +9,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="{{ url_for('static', filename='countdown.js')}}"></script>
+    <script type="module" src="{{ url_for('static', filename='bundle.bundled.js')}}"></script>
 </head>
 <body>
     <div class="container text-center">
-        <h1 class="my-4">Timer</h1>
+        <h1 id="timer-header" class="my-4">Timer</h1>
         <div class="time-picker mb-4 justify-content-center">
             <div>
                 <label for="hours">Hour(s)</label>
@@ -46,5 +46,7 @@
             <button id="endTimer" class="btn">End Timer</button>
         </div>
     </div>
+    <audio id="alertSound" src="{{ url_for('static', filename='alarm-clock-loop-90916.mp3') }}" preload="auto"></audio>
+
 </body>
 </html>
