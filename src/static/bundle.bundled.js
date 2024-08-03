@@ -31,10 +31,11 @@ $(document).ready(() => {
     let timeInSeconds = hour * 3600 + minutes * 60 + seconds;
     console.log("timeInSeconds:", timeInSeconds);
     const timerDisplay = $("#timer");
-    const audioSrc = convertFileSrc("static/alarm-clock-loop-90916.mp3");
-    const audio = new Audio(audioSrc);
-    console.log("Audio source:", audioSrc);
+    const audio  = document.getElementById('alertSound');
     console.log("Audio element:", audio);
+    if(audio){
+      audio.load();
+    }
     clearInterval(countdown);
     countdown = setInterval(() => {
       if (timeInSeconds > 0) {

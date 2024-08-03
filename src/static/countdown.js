@@ -40,7 +40,11 @@ $(document).ready(() => {
                 
             } else {
                 clearInterval(countdown);
-                audio.play();
+                audio.play().then(() => {
+                    console.log("Audio is playing");
+                }).catch(error => {
+                    console.error("Failed to play audio:", error);
+                });
                 sendNotification({
                     title: 'Timer',
                     body: "Time's up!!!"
