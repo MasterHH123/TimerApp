@@ -21,6 +21,7 @@ $(document).ready(() => {
   } else {
     console.log("Tauri API is not loaded");
   }
+
   $("#startTimer").click((e) => {
     e.preventDefault();
     let countdown;
@@ -32,10 +33,22 @@ $(document).ready(() => {
     console.log("timeInSeconds:", timeInSeconds);
     const timerDisplay = $("#timer");
     const audio  = document.getElementById('alertSound');
+    //only way I could it to play audio when the timer reached 0.
+    $('#playAudio').click((e) => {
+      e.preventDefault();
+      if(audio){
+        audio.muted = false;
+        audio.volume = 1.0;
+        audio.play().then(() => {
+          console.log("Audio is playing");
+        }).catch((error) => {
+          console.error("Failed to play audio:", error);
+        });
+      } else {
+        console.error("Audio element not found");
+      }
+    });
     console.log("Audio element:", audio);
-    if(audio){
-      audio.load();
-    }
     clearInterval(countdown);
     countdown = setInterval(() => {
       if (timeInSeconds > 0) {
@@ -46,22 +59,19 @@ $(document).ready(() => {
         timeInSeconds--;
       } else {
         clearInterval(countdown);
-        audio.play().then(() => {
-          console.log("Audio is playing");
-        }).catch((error) => {
-          console.error("Failed to play audio:", error);
-        });
+        audio.play();
         sendNotification({
           title: "Timer",
           body: "Time's up!!!"
         });
-        audio.pause();
-        audio.currentTime = 0;
+        audio.onended = () => {
+          audio.currentTime = 0;
+        }
         timerDisplay.text("00:00:00");
       }
-    }, 1e3);
-    $("#endTimer").click((e2) => {
-      e2.preventDefault();
+    }, 1000);
+    $("#endTimer").click((e) => {
+      e.preventDefault();
       clearInterval(countdown);
       $("#timer").text("00:00:00");
     });
